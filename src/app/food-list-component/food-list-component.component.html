@@ -1,0 +1,42 @@
+<div class="toolbar" role="banner">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.order_ts}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="mainCourse">
+            <th mat-header-cell *matHeaderCellDef> Main Course </th>
+            <td mat-cell *matCellDef="let element"> {{getNameOfFood(element, "MAIN_COURSE")}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="beverage">
+            <th mat-header-cell *matHeaderCellDef> Beverage </th>
+            <td mat-cell *matCellDef="let element"> {{getNameOfFood(element, "BEVERAGE")}} </td>
+          </ng-container>
+    
+        <ng-container matColumnDef="totalCalories">
+            <th mat-header-cell *matHeaderCellDef> Total Of Calories </th>
+            <td mat-cell *matCellDef="let element"> {{element.order_total_calories}} </td>
+          </ng-container>
+        
+      
+       
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+      
+      <!-- Copyright 2023 Google LLC. All Rights Reserved.
+          Use of this source code is governed by an MIT-style license that
+          can be found in the LICENSE file at https://angular.io/license -->
+</div>
+  
